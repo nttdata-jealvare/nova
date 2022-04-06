@@ -1,5 +1,6 @@
 package com.nttdata.dar.nova;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -17,7 +18,11 @@ public class Task {
 	 * |_ Status: task state
 	 */
 	private @Id @GeneratedValue Long id;
+	
+	@Column(columnDefinition = "varchar(256)")
 	private String description;
+	
+	@Column(columnDefinition = "varchar(100) default 'New'")
 	private String status;
 	
 	/**
