@@ -3,6 +3,7 @@ package com.nttdata.dar.nova;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 /**
@@ -17,7 +18,7 @@ public class Task {
 	 * |_ Description: String value
 	 * |_ Status: task state
 	 */
-	private @Id @GeneratedValue Long id;
+	private @Id @GeneratedValue(strategy = GenerationType.IDENTITY) Long id;
 	
 	@Column(columnDefinition = "varchar(256)")
 	private String description;
@@ -53,7 +54,18 @@ public class Task {
 	public Task(String description, String status) {
 		super();
 		this.description = description;
-		//this.status = status == null ? "New" : status;
+		this.status = status;
+	}
+	
+	/**
+	 * @param id
+	 * @param description
+	 * @param status
+	 */
+	public Task(Long id, String description, String status) {
+		super();
+		this.id = id;
+		this.description = description;
 		this.status = status;
 	}
 	

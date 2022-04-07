@@ -28,10 +28,13 @@ public class TaskController {
 		return (List<Task>) this.taskRepository.findAll();
 	}
 	
+	@GetMapping("/pendingTasks")
+	public List<Task> getPendingTasks(){		
+		return this.taskRepository.findByStatusIs("Pending");
+	}
+	
 	@GetMapping("/completedTasks")
-	public List<Task> getCompletedTasks(){
-		// TODO: add query
-		
+	public List<Task> getCompletedTasks(){		
 		return this.taskRepository.findByStatusIs("Completed");
 	}
 	
