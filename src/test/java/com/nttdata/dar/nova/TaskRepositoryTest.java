@@ -5,8 +5,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.assertj.core.util.Arrays;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -66,6 +64,8 @@ public class TaskRepositoryTest {
 		
 		assertThat(this.taskRepository.findAll().size()).isEqualTo(listTasks.size());
 	}
+	
+	// TODO: get a task by id
 	
 	// 
 	@Test
