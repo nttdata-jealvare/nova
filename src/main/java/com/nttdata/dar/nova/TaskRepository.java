@@ -3,9 +3,13 @@ package com.nttdata.dar.nova;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-//import org.springframework.data.repository.CrudRepository;
 
-public interface TaskRepository extends JpaRepository<Task, Long>{
+/**
+ * NOVA Project TaskRepository
+ * 
+ * @author jalvarco
+ */
+public interface TaskRepository extends JpaRepository<Task, Long> {
 
 	/**
 	 * Query method that means "status=XXX"
