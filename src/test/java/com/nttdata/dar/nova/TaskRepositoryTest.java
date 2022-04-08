@@ -64,10 +64,17 @@ public class TaskRepositoryTest {
 		
 		assertThat(this.taskRepository.findAll().size()).isEqualTo(listTasks.size());
 	}
+
+	@Test
+	public void getATask() {
+		Task idTask = new Task(this.descriptionT, this.statusT);
 	
-	// TODO: get a task by id
+		Task result = this.taskRepository.save(idTask);
+		
+		assertThat(this.taskRepository.findById(result.getId()).get().getDescription()).isEqualTo(this.descriptionT);
+		assertThat(this.taskRepository.findById(result.getId()).get().getStatus()).isEqualTo(this.statusT);
+	}
 	
-	// 
 	@Test
 	public void getPendingTasks() {
 		List<Task> pendingTasks = this.taskRepository.findByStatusIs("Pending");
